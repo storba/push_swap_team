@@ -1,66 +1,73 @@
-NAME = libft.a
+NAME = push_swap
 CC = cc
+CFLAG = -Wextra -Werror -Wall -Iinclude 
 
-CFLAG = -Wextra -Werror -Wall
-AR = ar rcs
+SRCS = ./push_swap.c \
+		src/check_input.c \
+		src/compute_disorder.c \
+		src/compute_maxmin.c \
+		src/fill_input.c \
+		src/fill_stack.c \
+		src/stack_free.c \
+		src/stack_init.c \
+		src/stack_pop.c \
+		src/stack_print.c \
+		src/stack_push.c \
+		src/stack_rotate.c \
+		src/stack_swap.c \
+		src/two_stacks_bonus.c \
+		src/two_stacks_free.c \
+		src/two_stacks_push.c \
+		src/two_stacks_rev_rotate.c \
+		src/two_stacks_rotate.c \
+		src/two_stacks_swap.c \
+		src/sort_stack.c \
+		src/sort_simple.c \
+		src/sort_medium.c \
+		src/sort_complex.c \
+		src/sort_shift_sorted.c \
+		src/write_bench_info.c \
+		src/sort_n.c \
+		src/sort_simple_min_max.c
+		
+OBJS = ${SRCS:.c=.o}
 
-SRCS = ft_strlen.c \
-		ft_isalpha.c \
-		ft_isalnum.c \
-		ft_isnum.c \
-		ft_atoi.c \
-		ft_isascii.c \
-		ft_isdigit.c \
-		ft_isprint.c \
-		ft_itoa.c \
-		ft_memcpy.c \
-		ft_memmove.c \
-		ft_memset.c \
-		ft_split.c \
-		ft_strjoin.c \
-		ft_strlcat.c \
-		ft_strlcpy.c \
-		ft_bzero.c \
-		ft_tolower.c \
-		ft_toupper.c \
-		ft_strncmp.c \
-		ft_strchr.c \
-		ft_strrchr.c \
-		ft_memchr.c \
-		ft_memcmp.c \
-		ft_strnstr.c \
-		ft_calloc.c \
-		ft_strdup.c \
-		ft_substr.c \
-		ft_strtrim.c \
-		ft_strmapi.c \
-		ft_striteri.c \
-		ft_putchar_fd.c ft_putendl_fd.c  ft_putnbr_fd.c ft_putstr_fd.c \
-		ft_lstadd_front.c \
-		ft_lstsize.c ft_lstlast.c\
-		ft_lstadd_back.c \
-		ft_lstnew.c \
-		ft_lstdelone.c \
-		ft_lstclear.c\
-		ft_lstiter.c ft_lstmap.c\
-		get_next_line.c
+SRC_BONUS = ./checker.c \
+		src/two_stacks_bonus.c src/fill_stack.c \
+		src/check_input.c \
+		src/two_stacks_free.c\
+		src/compute_disorder.c src/compute_maxmin.c \
+		src/stack_free.c src/stack_init.c src/stack_pop.c \
+		src/stack_print.c src/stack_push.c src/stack_rotate.c \
+		src/stack_swap.c
 
-OBJS = $(SRCS:%.c=%.o)
+
+OBJ_BONUS = ${SRC_BONUS:.c=.o}
+
+${NAME}: ${OBJS}
+	make -C ./libft
+	make -C ./ft_printf
+	@${CC} ${CFLAGS} ${OBJS} ./libft/libft.a ./ft_printf/libftprintf.a -o ${NAME}
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
-%.o: %.c
-	@$(CC) $(CFLAG) -c $< -o $@
 clean:
+	rm -f src/*.o
 	rm -f *.o
-
-bonus : all
+	rm -f libft/*.o
+	rm -f ft_printf/*.o
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f checker
+	rm -f libft/libft.a
+	rm -f ft_printf/libftprintf.a
 
 re: fclean all
+
+bonus: ${OBJ_BONUS}
+	make -C ./libft
+	make -C ./ft_printf
+	@${CC} ${CFLAGS} ${OBJ_BONUS} ./libft/libft.a ./ft_printf/libftprintf.a -o checker
 
 .PHONY: all clean fclean re bonus
