@@ -31,7 +31,8 @@ SRCS = ./push_swap.c \
 		src/sort_shift_sorted.c \
 		src/write_bench_info.c \
 		src/sort_n.c \
-		src/sort_simple_min_max.c
+		src/sort_simple_min_max.c \
+		src/sort_medium_chunk.c
 		
 OBJS = ${SRCS:.c=.o}
 
