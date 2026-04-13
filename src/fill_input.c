@@ -6,7 +6,7 @@
 /*   By: svpanfil <svpanfil@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/09 15:50:22 by svpanfil      #+#    #+#                 */
-/*   Updated: 2026/04/09 15:50:23 by svpanfil      ########   odam.nl         */
+/*   Updated: 2026/04/11 19:09:15 by sveta         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,22 @@ void	check_one_arg(char *arg, t_Info *info, int *count_strategy)
 	if (ft_strncmp(arg, "--simple", 9) == 0)
 	{
 		info->strategy = 0;
-		count_strategy ++;
+		(*count_strategy)++;
 	}
 	else if (ft_strncmp(arg, "--medium", 9) == 0)
 	{
 		info->strategy = 1;
-		count_strategy++;
+		(*count_strategy)++;
 	}
 	else if (ft_strncmp(arg, "--complex", 10) == 0)
 	{
 		info->strategy = 2;
-		count_strategy++;
+		(*count_strategy)++;
 	}
 	else if (ft_strncmp(arg, "--adaptive", 11) == 0)
 	{
 		info->strategy = 3;
-		count_strategy++;
+		(*count_strategy)++;
 	}
 	else if (ft_strncmp(arg, "--bench", 8) == 0)
 		info->benchmark = 1;

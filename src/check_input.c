@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   check_input.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yelkorni <yelkorni@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/07 14:06:44 by yelkorni          #+#    #+#             */
-/*   Updated: 2026/04/07 14:06:50 by yelkorni         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   check_input.c                                      :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: yelkorni <yelkorni@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/07 14:06:44 by yelkorni      #+#    #+#                 */
+/*   Updated: 2026/04/11 19:03:39 by sveta         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,6 @@ static int	ft_isduplicate(int num, char **argv, int n)
 		i++;
 	}
 	return (1);
-}
-
-static void	free_args(int argc, char **args)
-{
-	if (argc == 2)
-		clear_all(args);
 }
 
 /*

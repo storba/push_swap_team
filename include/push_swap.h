@@ -6,7 +6,7 @@
 /*   By: yelkorni <yelkorni@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/03 14:52:18 by yelkorni      #+#    #+#                 */
-/*   Updated: 2026/04/10 16:35:06 by sveta         ########   odam.nl         */
+/*   Updated: 2026/04/11 18:55:28 by sveta         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,19 @@ void	free_two_stacks(t_Stack *stack_a, t_Stack *stack_b);
 // sorting strategies
 void	sort_simple(t_Stack *stack_a, t_Stack *stack_b, t_Info *info);
 void	sort_medium(t_Stack *stack_a, t_Stack *stack_b, t_Info *info);
+//coplex
 void	sort_complex(t_Stack *stack_a, t_Stack *stack_b, t_Info *info);
+int	get_value_by_ind(int i, t_Stack *stack);
+void	rotate_to_val_stack_a(int i, t_Stack *stack_a, t_Info *info);
+void	rotate_to_i_stack_a(int j, t_Stack *stack_a, t_Info *info);
+void	rotate_to_j_stack_b(int j, t_Stack *stack_b, t_Info *info);
+void	push_el(int i, t_Stack *stack_a, t_Stack *stack_b, t_Info *info);
+void	r_ij(int i, int j, t_Stack *s_a, t_Stack *s_b, t_Info *info);
+void	rr_ij(int i, int j, t_Stack *s_a, t_Stack *s_b, t_Info *info);
+int		count_min_cost(t_Stack *stack_a, t_Stack *stack_b);
+int		count_j(int val, t_Stack *stack_b, int min_b, int max_b);
+int		count_i(int val, t_Stack *stack_a, int min_a, int max_a);
+//adaptive
 void	sort_adaptive(t_Stack *stack_a, t_Stack *stack_b, t_Info *info);
 void	sort_stack(t_Stack *stack_a, t_Stack *stack_b, t_Info *input);
 void	sort_shifta_sorted(t_Stack *stack, t_Info *info);
