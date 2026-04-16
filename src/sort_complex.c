@@ -6,13 +6,13 @@
 /*   By: svpanfil <svpanfil@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/09 15:48:31 by svpanfil      #+#    #+#                 */
-/*   Updated: 2026/04/12 17:10:12 by sveta         ########   odam.nl         */
+/*   Updated: 2026/04/14 21:50:09 by sveta         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	push_min(t_Stack *stack_a, t_Stack *stack_b, t_Info *info)
+static void	push_min_of_three(t_Stack *stack_a, t_Stack *stack_b, t_Info *info)
 {
 	if (stack_a->head->value > stack_a->head->next->value)
 		do_sa(stack_a, info);
@@ -26,7 +26,6 @@ static void	push_elem(t_Stack *stack_a, t_Stack *stack_b, t_Info *info)
 	int		max_a;
 	int		min_a;
 	int		i;
-	//t_Node	*current_a;
 	int		val;
 
 	i = 0;
@@ -52,7 +51,7 @@ void	sort_complex_more5(t_Stack *stack_a, t_Stack *stack_b, t_Info *info)
 	i = 0;
 	while (i < 2)
 	{
-		push_min(stack_a, stack_b, info);
+		push_min_of_three(stack_a, stack_b, info);
 		i++;
 	}
 	if (stack_a->size == 4)
@@ -62,7 +61,7 @@ void	sort_complex_more5(t_Stack *stack_a, t_Stack *stack_b, t_Info *info)
 		while (stack_a->size > 5)
 		{
 			i = count_min_cost(stack_a, stack_b);
-			push_el(i, stack_a, stack_b, info);
+			push_elem_i_to_b(i, stack_a, stack_b, info);
 		}
 		sort_5(stack_a, stack_b, info);
 	}

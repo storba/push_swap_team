@@ -6,7 +6,7 @@
 /*   By: sveta <svpanfil@student.codam.nl>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/16 19:35:15 by svpanfil      #+#    #+#                 */
-/*   Updated: 2026/04/11 19:12:17 by sveta         ########   odam.nl         */
+/*   Updated: 2026/04/14 20:43:30 by sveta         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	rotate_to_j_stack_b(int j, t_Stack *stack_b, t_Info *info)
 	}
 }
 
-void	push_el(int i, t_Stack *stack_a, t_Stack *stack_b, t_Info *info)
+void	push_elem_i_to_b(int i, t_Stack *stack_a, t_Stack *stack_b, t_Info *info)
 {
 	int		val;
 	int		j;
