@@ -6,7 +6,7 @@
 /*   By: yelkorni <yelkorni@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/03 14:52:18 by yelkorni      #+#    #+#                 */
-/*   Updated: 2026/04/16 13:00:05 by svpanfil      ########   odam.nl         */
+/*   Updated: 2026/04/16 13:40:44 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,8 @@ void	free_two_stacks(t_Stack *stack_a, t_Stack *stack_b);
 
 // sorting strategies
 void	sort_simple(t_Stack *stack_a, t_Stack *stack_b, t_Info *info);
-void	sort_medium(t_Stack *stack_a, t_Stack *stack_b, t_Info *info);
+//medium
+void	fill_index(t_Stack *stack);
 void	sort_medium_chunk(t_Stack *stack_a, t_Stack *stack_b, t_Info *info);
 //complex
 void	sort_complex(t_Stack *stack_a, t_Stack *stack_b, t_Info *info);

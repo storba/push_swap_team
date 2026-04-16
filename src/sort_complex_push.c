@@ -6,7 +6,7 @@
 /*   By: sveta <svpanfil@student.codam.nl>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/16 19:35:15 by svpanfil      #+#    #+#                 */
-/*   Updated: 2026/04/14 20:43:30 by sveta         ########   odam.nl         */
+/*   Updated: 2026/04/16 13:42:10 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,30 +95,30 @@ void	rotate_to_j_stack_b(int j, t_Stack *stack_b, t_Info *info)
 	}
 }
 
-void	push_elem_i_to_b(int i, t_Stack *stack_a, t_Stack *stack_b, t_Info *info)
+void	push_elem_i_to_b(int i, t_Stack *s_a, t_Stack *s_b, t_Info *info)
 {
 	int		val;
-	int		j;
-	//t_Node	*current_b;
 	int		max_b;
 	int		min_b;
+	t_ij	ij;
 
-	max_b = get_max_value(stack_b);
-	min_b = get_min_value(stack_b);
-	val = get_value_by_ind(i, stack_a);
-	j = count_j(val, stack_b, min_b, max_b);
-	if (i <= stack_a->size / 2 && j <= stack_b->size / 2)
+	max_b = get_max_value(s_b);
+	min_b = get_min_value(s_b);
+	val = get_value_by_ind(i, s_a);
+	ij.i = i;
+	ij.j = count_j(val, s_b, min_b, max_b);
+	if (i <= s_a->size / 2 && ij.j <= s_b->size / 2)
 	{
-		r_ij(i, j, stack_a, stack_b, info);
+		r_ij(ij, s_a, s_b, info);
 	}
-	else if (i > stack_a->size / 2 && j > stack_b->size / 2)
+	else if (ij.i > s_a->size / 2 && ij.j > s_b->size / 2)
 	{
-		rr_ij(i, j, stack_a, stack_b, info);
+		rr_ij(ij, s_a, s_b, info);
 	}
 	else
 	{
-		rotate_to_val_stack_a(i, stack_a, info);
-		rotate_to_j_stack_b(j, stack_b, info);
+		rotate_to_val_stack_a(ij.i, s_a, info);
+		rotate_to_j_stack_b(ij.j, s_b, info);
 	}
-	do_pb(stack_a, stack_b, info);
+	do_pb(s_a, s_b, info);
 }

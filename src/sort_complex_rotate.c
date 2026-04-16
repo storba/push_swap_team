@@ -6,7 +6,7 @@
 /*   By: svpanfil <svpanfil@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/16 13:02:23 by svpanfil      #+#    #+#                 */
-/*   Updated: 2026/04/16 13:02:24 by svpanfil      ########   odam.nl         */
+/*   Updated: 2026/04/16 13:42:36 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	rr_ij(t_ij ij, t_Stack *s_a, t_Stack *s_b, t_Info *info)
 	while (s_b->size - ij.j > 0)
 	{
 		do_rrb(s_b, info);
-		j++;
+		ij.j++;
 	}
 	while (s_a->size - ij.i > 0)
 	{

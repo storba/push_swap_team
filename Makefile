@@ -24,7 +24,6 @@ SRCS = ./push_swap.c \
 		src/two_stacks_swap.c \
 		src/sort_stack.c \
 		src/sort_simple.c \
-		src/sort_medium.c \
 		src/sort_complex.c \
 		src/sort_complex_push.c src/sort_complex_rotate.c src/sort_complex_cost.c\
 		src/sort_complex_count_i.c src/sort_complex_count_j.c\
@@ -32,7 +31,8 @@ SRCS = ./push_swap.c \
 		src/write_bench_info.c \
 		src/sort_n.c \
 		src/sort_simple_min_max.c \
-		src/sort_medium_chunk.c
+		src/sort_medium_chunk.c \
+		src/sort_medium_fill_ind.c 
 		
 OBJS = ${SRCS:.c=.o}
 

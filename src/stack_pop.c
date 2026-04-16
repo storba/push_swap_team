@@ -6,7 +6,7 @@
 /*   By: svpanfil <svpanfil@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/09 15:48:43 by svpanfil      #+#    #+#                 */
-/*   Updated: 2026/04/11 19:11:11 by sveta         ########   odam.nl         */
+/*   Updated: 2026/04/16 13:24:42 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 t_Node	*pop_front(t_Stack *stack)
 {
-	//int		value;
 	t_Node	*temp;
 
 	if (!stack->head)
 		return (NULL);
-	//value = stack->head->value;
 	temp = stack->head;
 	stack->head = stack->head->next;
 	if (stack->head)

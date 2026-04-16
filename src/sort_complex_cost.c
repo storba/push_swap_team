@@ -6,7 +6,7 @@
 /*   By: svpanfil <svpanfil@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/16 13:01:56 by svpanfil      #+#    #+#                 */
-/*   Updated: 2026/04/16 13:01:59 by svpanfil      ########   odam.nl         */
+/*   Updated: 2026/04/16 13:06:46 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	count_cost(int i, int j, int size_a, int size_b)
 int	count_cost_b(int value_a, int i, int size_a, t_Stack *stack_b)
 {
 	int		cost;
-	//t_Node	*current_b;
 	int		j;
 	int		max_b;
 	int		min_b;

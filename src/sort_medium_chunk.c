@@ -1,49 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sort_medium_chunk.c                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yelyzavetakorniienko <yelyzavetakorniienko +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/12 18:56:47 by yelyzavetakornii  #+#    #+#             */
-/*   Updated: 2026/04/12 20:02:21 by yelyzavetakornii ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   sort_medium_chunk.c                                :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: yelyzavetakorniienko <yelyzavetakorniie      +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/12 18:56:47 by yelyzavetak   #+#    #+#                 */
+/*   Updated: 2026/04/16 13:22:08 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../include/push_swap.h"
 
-static int fill_index_Node(t_Stack *stack, int value)
+static int	get_sqrt(int n)
 {
-	t_Node *current;
-	int index;
-
-	current = stack->head;
-	index = 0;
-	while(current)
-	{
-		if(value > current->value)
-			index++;
-		current = current->next;
-	}
-	return (index);
-}
-
-static void fill_index(t_Stack *stack)
-{
-	t_Node *current;
-
-	current = stack->head;
-	while (current)
-	{
-		current->index = fill_index_Node(stack, current->value);
-		current = current->next;
-	}
-}
-
-static int  get_sqrt(int n)
-{
-	int i;
+	int	i;
 
 	i = 1;
 	while (i * i <= n)
@@ -53,26 +24,26 @@ static int  get_sqrt(int n)
 	return (i);
 }
 
-static void push_chunk(t_Stack *stack_a, t_Stack *stack_b, t_Info *info, int chunk_size)
+static void	push_chunk(t_Stack *s_a, t_Stack *s_b, t_Info *info, int chunk_size)
 {
-	int pushed;
+	int	pushed;
 
 	pushed = 0;
-	while (stack_a->size > 0)
+	while (s_a->size > 0)
 	{
-		if (stack_a->head->index <= pushed)
+		if (s_a->head->index <= pushed)
 		{
-			do_pb(stack_a, stack_b, info);
-			do_rb(stack_b, info);
+			do_pb(s_a, s_b, info);
+			do_rb(s_b, info);
 			pushed++;
 		}
-		else if (stack_a->head->index <= pushed + chunk_size)
+		else if (s_a->head->index <= pushed + chunk_size)
 		{
-			do_pb(stack_a, stack_b, info);
+			do_pb(s_a, s_b, info);
 			pushed++;
 		}
 		else
-			do_ra(stack_a, info);
+			do_ra(s_a, info);
 	}
 }
 
@@ -119,7 +90,7 @@ static void	move_max_to_top(t_Stack *b, int max_position, t_Info *info)
 
 void	sort_medium_chunk(t_Stack *stack_a, t_Stack *stack_b, t_Info *info)
 {
-	int chunk_size;
+	int	chunk_size;
 	int	max_position;
 
 	if (is_sorted(stack_a))
