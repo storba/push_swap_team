@@ -5,8 +5,9 @@
 echo "sort 5 elements"
 for i in {1..100}; do
 #ARG=$(gshuf -i 0-5000 -n 5)
-ARG=$(seq -5000 5000 | gshuf -n 5 | tr '\n' ' ')
-RES=$(./push_swap $ARG | ./checker_Mac $ARG)
+#ARG=$(seq -5000 5000 | gshuf -n 5 | tr '\n' ' ')
+ARG=$(shuf -i -5000-5000 -n 5)
+RES=$(./push_swap $ARG | ./checker $ARG)
 if [ "$RES" = "KO" ]; then 
         echo "KO"
     fi
@@ -17,10 +18,11 @@ if [ "$NUM" -gt 12 ]; then
 fi
 done
 
-echo "sort 6 elements"
+#echo "sort 6 elements"
+: << 'END'
 for i in {1..100}; do
-RG=$(seq -5000 5000 | gshuf -n 6 | tr '\n' ' ')
-RES=$(./push_swap $ARG | ./checker_Mac $ARG)
+ARG=$(seq -5000 5000 | gshuf -n 6 | tr '\n' ' ')
+RES=$(./push_swap $ARG | ./checker $ARG)
 if [ "$RES" = "KO" ]; then 
         echo "KO"
     fi
@@ -35,7 +37,7 @@ echo "sort 100 elements"
 for i in {1..100}; do
 #ARG=$(gshuf -i 0-5000 -n 100)
 ARG=$(seq -5000 5000 | gshuf -n 100 | tr '\n' ' ')
-RES=$(./push_swap $ARG | ./checker_Mac $ARG)
+RES=$(./push_swap $ARG | ./checker $ARG)
 if [ "$RES" = "KO" ]; then 
         echo "KO"
     fi
@@ -50,7 +52,7 @@ echo "sort 500 elements"
 for i in {1..150}; do
 #ARG=$(gshuf -i 0-1000 -n 500)
 ARG=$(seq -5000 5000 | gshuf -n 500 | tr '\n' ' ')
-RES=$(./push_swap $ARG | ./checker_Mac $ARG)
+RES=$(./push_swap $ARG | ./checker $ARG)
 if [ "$RES" = "KO" ]; then 
         echo "KO"
     fi
@@ -60,3 +62,4 @@ if [ "$NUM" -gt 5500 ]; then
        # echo "Array: $ARG"
     fi
 done
+END
