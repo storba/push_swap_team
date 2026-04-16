@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   sort_complex_count_j.c                             :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: svpanfil <svpanfil@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/16 13:02:15 by svpanfil      #+#    #+#                 */
+/*   Updated: 2026/04/16 13:02:16 by svpanfil      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 static int	count_j_min(int min_b, t_Stack *stack_b)

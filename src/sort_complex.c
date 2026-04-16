@@ -6,7 +6,7 @@
 /*   By: svpanfil <svpanfil@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/09 15:48:31 by svpanfil      #+#    #+#                 */
-/*   Updated: 2026/04/14 21:50:09 by sveta         ########   odam.nl         */
+/*   Updated: 2026/04/16 13:01:36 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static void	push_from_s_b(t_Stack *s_a, t_Stack *s_b, t_Info *info)
 		push_elem(s_a, s_b, info);
 	}
 }
+
 void	sort_complex_more5(t_Stack *stack_a, t_Stack *stack_b, t_Info *info)
 {
 	int	i;
@@ -94,5 +95,3 @@ void	sort_complex(t_Stack *stack_a, t_Stack *stack_b, t_Info *info)
 	}
 	sort_complex_more5(stack_a, stack_b, info);
 }
-
-

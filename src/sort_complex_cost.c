@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   sort_complex_cost.c                                :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: svpanfil <svpanfil@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/16 13:01:56 by svpanfil      #+#    #+#                 */
+/*   Updated: 2026/04/16 13:01:59 by svpanfil      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 int	count_cost(int i, int j, int size_a, int size_b)

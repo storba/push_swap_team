@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   sort_complex_count_i.c                             :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: svpanfil <svpanfil@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/16 13:02:08 by svpanfil      #+#    #+#                 */
+/*   Updated: 2026/04/16 13:02:09 by svpanfil      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 static int	count_i_min(int min_a, t_Stack *stack_a)

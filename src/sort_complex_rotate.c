@@ -1,38 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   sort_complex_rotate.c                              :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: svpanfil <svpanfil@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/16 13:02:23 by svpanfil      #+#    #+#                 */
+/*   Updated: 2026/04/16 13:02:24 by svpanfil      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
-void	r_ij(int i, int j, t_Stack *s_a, t_Stack *s_b, t_Info *info)
+void	r_ij(t_ij ij, t_Stack *s_a, t_Stack *s_b, t_Info *info)
 {
-	while (i > 0 && j > 0)
+	while (ij.i > 0 && ij.j > 0)
 	{
 		do_rr(s_a, s_b, info);
-		j--;
-		i--;
+		ij.j--;
+		ij.i--;
 	}
-	while (i-- > 0)
+	while (ij.i-- > 0)
 		do_ra(s_a, info);
-	while (j > 0)
+	while (ij.j > 0)
 	{
 		do_rb(s_b, info);
-		j--;
+		ij.j--;
 	}
 }
 
-void	rr_ij(int i, int j, t_Stack *s_a, t_Stack *s_b, t_Info *info)
+void	rr_ij(t_ij ij, t_Stack *s_a, t_Stack *s_b, t_Info *info)
 {
-	while (s_b->size - j > 0 && s_a->size - i > 0)
+	while (s_b->size - ij.j > 0 && s_a->size - ij.i > 0)
 	{
 		do_rrr(s_a, s_b, info);
-		i++;
-		j++;
+		ij.i++;
+		ij.j++;
 	}
-	while (s_b->size - j > 0)
+	while (s_b->size - ij.j > 0)
 	{
 		do_rrb(s_b, info);
 		j++;
 	}
-	while (s_a->size - i > 0)
+	while (s_a->size - ij.i > 0)
 	{
 		do_rra(s_a, info);
-		i++;
+		ij.i++;
 	}
 }

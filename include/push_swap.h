@@ -6,7 +6,7 @@
 /*   By: yelkorni <yelkorni@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/03 14:52:18 by yelkorni      #+#    #+#                 */
-/*   Updated: 2026/04/15 16:44:00 by sveta         ########   odam.nl         */
+/*   Updated: 2026/04/16 13:00:05 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ typedef struct Info
 
 typedef struct s_ij
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 }	t_ij;
 
 // work with input
@@ -115,8 +115,8 @@ void	rotate_to_val_stack_a(int i, t_Stack *stack_a, t_Info *info);
 void	rotate_to_i_stack_a(int j, t_Stack *stack_a, t_Info *info);
 void	rotate_to_j_stack_b(int j, t_Stack *stack_b, t_Info *info);
 void	push_elem_i_to_b(int i, t_Stack *s_a, t_Stack *s_b, t_Info *info);
-void	r_ij(int i, int j, t_Stack *s_a, t_Stack *s_b, t_Info *info);
-void	rr_ij(int i, int j, t_Stack *s_a, t_Stack *s_b, t_Info *info);
+void	r_ij(t_ij ij, t_Stack *s_a, t_Stack *s_b, t_Info *info);
+void	rr_ij(t_ij ij, t_Stack *s_a, t_Stack *s_b, t_Info *info);
 int		count_min_cost(t_Stack *stack_a, t_Stack *stack_b);
 int		count_j(int val, t_Stack *stack_b, int min_b, int max_b);
 int		count_i(int val, t_Stack *stack_a, int min_a, int max_a);
