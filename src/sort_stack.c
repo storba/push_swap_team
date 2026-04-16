@@ -6,7 +6,7 @@
 /*   By: yelkorni <yelkorni@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/09 15:48:37 by svpanfil      #+#    #+#                 */
-/*   Updated: 2026/04/13 18:33:57 by sveta         ########   odam.nl         */
+/*   Updated: 2026/04/16 15:05:36 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sort_adaptive(t_Stack *stack_a, t_Stack *stack_b, t_Info *info)
 
 	d = compute_disorder(stack_a);
 	if (d < 0.2)
-		sort_simple(stack_a, stack_b, info);
+		sort_simple_min_max(stack_a, stack_b, info);
 	else if (d < 0.7)
 		sort_medium_chunk(stack_a, stack_b, info);
 	else

@@ -6,7 +6,7 @@
 /*   By: svpanfil <svpanfil@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/09 15:50:32 by svpanfil      #+#    #+#                 */
-/*   Updated: 2026/04/10 16:46:05 by sveta         ########   odam.nl         */
+/*   Updated: 2026/04/16 15:24:15 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,25 @@ static int	push_from_input(char **args, t_Stack *stack)
 	return (1);
 }
 
+int	work_with_args(char **args, t_Stack *stack, int flag_split)
+{
+	if (check_input(args))
+	{
+		ft_putendl_fd("Error", 2);
+		free_args(flag_split, args);
+		return (1);
+	}
+	init_stack(stack);
+	if (!push_from_input(args, stack))
+	{
+		ft_putendl_fd("Error with malloc memory", 2);
+		free_stack(stack);
+		free_args(flag_split, args);
+		return (1);
+	}
+	return (0);
+}
+
 int	fill_stack_from_args(int argc, char **argv, t_Stack *stack)
 {
 	char	**args;
@@ -59,20 +78,8 @@ int	fill_stack_from_args(int argc, char **argv, t_Stack *stack)
 	}
 	else
 		args = &argv[start];
-	if (check_input(args))
-	{
-		ft_putendl_fd("Error", 2);
-		free_args(flag_split, args);
+	if (work_with_args(args, stack, flag_split))
 		return (1);
-	}
-	init_stack(stack);
-	if (!push_from_input(args, stack))
-	{
-		ft_putendl_fd("Error with malloc memory", 2);
-		free_stack(stack);
-		free_args(flag_split, args);
-		return (1);
-	}
 	free_args(flag_split, args);
 	return (0);
 }

@@ -23,7 +23,6 @@ SRCS = ./push_swap.c \
 		src/two_stacks_rotate.c \
 		src/two_stacks_swap.c \
 		src/sort_stack.c \
-		src/sort_simple.c \
 		src/sort_complex.c \
 		src/sort_complex_push.c src/sort_complex_rotate.c src/sort_complex_cost.c\
 		src/sort_complex_count_i.c src/sort_complex_count_j.c\

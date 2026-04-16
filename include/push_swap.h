@@ -6,7 +6,7 @@
 /*   By: yelkorni <yelkorni@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/03 14:52:18 by yelkorni      #+#    #+#                 */
-/*   Updated: 2026/04/16 13:40:44 by svpanfil      ########   odam.nl         */
+/*   Updated: 2026/04/16 15:11:37 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	do_rrr_bon(t_Stack *stack_a, t_Stack *stack_b);
 void	free_two_stacks(t_Stack *stack_a, t_Stack *stack_b);
 
 // sorting strategies
-void	sort_simple(t_Stack *stack_a, t_Stack *stack_b, t_Info *info);
+void	sort_simple_min_max(t_Stack *a, t_Stack *b, t_Info *info);
 //medium
 void	fill_index(t_Stack *stack);
 void	sort_medium_chunk(t_Stack *stack_a, t_Stack *stack_b, t_Info *info);
@@ -130,7 +130,6 @@ void	sort_2(t_Stack *stack_a, t_Info *info);
 void	sort_3(t_Stack *stack_a, t_Info *info);
 void	sort_4(t_Stack *stack_a, t_Stack *stack_b, t_Info *info);
 void	sort_5(t_Stack *stack_a, t_Stack *stack_b, t_Info *info);
-void	sort_simple_min_max(t_Stack *a, t_Stack *b, t_Info *info);
 
 // stack analysis
 float	compute_disorder(t_Stack *stack);

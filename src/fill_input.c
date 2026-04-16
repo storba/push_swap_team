@@ -6,7 +6,7 @@
 /*   By: svpanfil <svpanfil@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/09 15:50:22 by svpanfil      #+#    #+#                 */
-/*   Updated: 2026/04/11 19:09:15 by sveta         ########   odam.nl         */
+/*   Updated: 2026/04/16 15:11:07 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	init_info(t_Info *info)
 	info->rrr = 0;
 }
 
-void	check_one_arg(char *arg, t_Info *info, int *count_strategy)
+static void	check_one_arg(char *arg, t_Info *info, int *count_strategy)
 {
 	if (ft_strncmp(arg, "--simple", 9) == 0)
 	{
