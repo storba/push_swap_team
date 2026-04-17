@@ -6,7 +6,7 @@
 /*   By: yelkorni <yelkorni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 15:50:22 by svpanfil      #+  #+#    #+#             */
-/*   Updated: 2026/04/17 11:22:48 by yelkorni         ###   ########.fr       */
+/*   Updated: 2026/04/17 11:30:08 by yelkorni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ void	init_info(t_Info *info)
 	info->rrb = 0;
 	info->rrr = 0;
 }
-
+static void change_strategy(int str,t_Info *info, int *count_strategy)
+{
+	info->strategy = str;
+	(*count_strategy)++;
+}
 void	check_one_arg(char *arg, t_Info *info, int *count_strategy, int *count_benchmark)
 {
 	if (ft_strncmp(arg, "--simple", 9) == 0)
