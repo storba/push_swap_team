@@ -77,4 +77,24 @@ if [ "$res" = "$return_promt" ] && [ "$code" -eq 0 ]; then
 else
     printf "$RED KO\n"
 fi
+
+#------test 7 MAXINT+1------
+printf "$GRAY test 7 MAXINT+1: ./push_swap 1 2 5 2147483648 9 11 \n"
+res=$( ./push_swap 1 2 5 2147483648 9 11 2>&1 >/dev/null)
+code=$?
+if [ "$err" = "$expected" ] && [ "$code" -eq 1 ]; then 
+        printf "$GREEN OK\n"
+else
+    printf "$RED KO\n"
+fi
+
+#------test 8------
+printf "$GRAY test 8: MINIMUM-1./push_swap 1 2 5 -2147483649 9 11 \n"
+res=$( ./push_swap 1 2 5 -2147483649 9 11 2>&1 >/dev/null)
+code=$?
+if [ "$err" = "$expected" ] && [ "$code" -eq 1 ]; then 
+        printf "$GREEN OK\n"
+else
+    printf "$RED KO\n"
+fi
 printf "$DEF_COLOR"

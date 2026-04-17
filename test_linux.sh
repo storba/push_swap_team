@@ -11,38 +11,233 @@ CYAN='\033[0;96m'
 GRAY='\033[0;90m'
 WHITE='\033[0;97m'
 
-echo "$MAGENTA sort 5 elements"
-for i in {1..10}; do
-ARG=$(seq 0 100 | shuf -n 5 | tr '\n' ' ')
-printf $i ")" $ARG "\n"
+printf "$MAGENTA sort 5 elements 5 4 3 2 1\n"
+printf "=====================================\n"
+ARG="5 4 3 2 1"
+printf $DEF_COLOR" $ARG \n"
 
 RES=$(./push_swap  --simple $ARG | ./checker_linux $ARG)
-printf "$BLACK simple $RES \n"
+printf $DEF_COLOR"simple "
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
+
 
 RES=$(./push_swap  --medium $ARG | ./checker_linux $ARG)
-echo "medium $RES"
+printf $DEF_COLOR"medium "
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
 
 RES=$(./push_swap  --complex $ARG | ./checker_linux $ARG)
-echo "complex $RES"
-
+printf $DEF_COLOR"complex "
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
 RES=$(./push_swap  --adaptive $ARG | ./checker_linux $ARG)
-echo "adaptive $RES"
+printf $DEF_COLOR"adaptive"
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
 
-echo -n "Array: $ARG"
+printf $DEF_COLOR"without flag"
+./push_swap --bench $ARG 2> bench.txt 1> /dev/null
+cat bench.txt |grep "Adaptive"
+
+
+printf "$MAGENTA sort 5 elements \n"
+printf "=====================================\n"
+for i in {1..10}; do
+ARG=$(seq 0 100 | shuf -n 5 | tr '\n' ' ')
+printf $DEF_COLOR"$i ) $ARG \n"
+
+RES=$(./push_swap  --simple $ARG | ./checker_linux $ARG)
+printf $DEF_COLOR"simple "
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
+
+
+RES=$(./push_swap  --medium $ARG | ./checker_linux $ARG)
+printf $DEF_COLOR"medium "
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
+
+RES=$(./push_swap  --complex $ARG | ./checker_linux $ARG)
+printf $DEF_COLOR"complex "
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
+RES=$(./push_swap  --adaptive $ARG | ./checker_linux $ARG)
+printf $DEF_COLOR"adaptive"
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
+done
+
+for i in {1..10}; do
+ARG=$(seq 0 100 | shuf -n 5 | tr '\n' ' ')
+printf $DEF_COLOR"$i ) $ARG \n"
+printf $CYAN
+./push_swap --simple --bench $ARG 2> bench.txt 1> /dev/null
+cat bench.txt | grep "disorder"
+printf $DEF_COLOR
 NUM=$(./push_swap --simple $ARG | wc -l)
         echo "Simple: $NUM"
-
-NUM=$(./push_swap --complex $ARG | wc -l)
-        echo "Complex: $NUM"
 
 NUM=$(./push_swap --medium $ARG | wc -l)
         echo "Medium: $NUM"
 
+NUM=$(./push_swap --complex $ARG | wc -l)
+        echo "Complex: $NUM"
+
+
 NUM=$(./push_swap --adaptive $ARG | wc -l) 
         echo "Adaptive: $NUM"
+
+done
+
+printf "$MAGENTA sort 6 elements\n"
+printf "=====================================\n"
+for i in {1..10}; do
+ARG=$(seq 0 1000 | shuf -n 6 | tr '\n' ' ')
+printf "$DEF_COLOR $i ) $ARG \n"
+
+RES=$(./push_swap  --simple $ARG | ./checker_linux $ARG)
+printf $DEF_COLOR"simple "
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
+
+
+RES=$(./push_swap  --medium $ARG | ./checker_linux $ARG)
+printf $DEF_COLOR"medium "
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
+
+RES=$(./push_swap  --complex $ARG | ./checker_linux $ARG)
+printf $DEF_COLOR"complex "
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
+RES=$(./push_swap  --adaptive $ARG | ./checker_linux $ARG)
+printf $DEF_COLOR"adaptive"
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
+done
+
+for i in {1..10}; do
+ARG=$(seq 0 1000| shuf -n 6 | tr '\n' ' ')
+printf "$DEF_COLOR$i ) $ARG \n"
+printf $CYAN
+./push_swap --simple --bench $ARG 2> bench.txt 1> /dev/null
+cat bench.txt | grep "disorder"
+printf $DEF_COLOR
+NUM=$(./push_swap --simple $ARG | wc -l)
+        echo "Simple: $NUM"
+
+NUM=$(./push_swap --medium $ARG | wc -l)
+        echo "Medium: $NUM"
+
+NUM=$(./push_swap --complex $ARG | wc -l)
+        echo "Complex: $NUM"
+
+
+NUM=$(./push_swap --adaptive $ARG | wc -l) 
+        echo "Adaptive: $NUM"
+
+done
+
+printf "$MAGENTA sort 100 elements\n"
+printf "=====================================\n"
+for i in {1..10}; do
+ARG=$(seq -5000 5000 | shuf -n 100 | tr '\n' ' ')
+printf "$DEF_COLOR $i ) \n"
+
+RES=$(./push_swap  --simple $ARG | ./checker_linux $ARG)
+printf $DEF_COLOR"simple "
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
+
+
+RES=$(./push_swap  --medium $ARG | ./checker_linux $ARG)
+printf $DEF_COLOR"medium "
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
+
+RES=$(./push_swap  --complex $ARG | ./checker_linux $ARG)
+printf $DEF_COLOR"complex "
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
+RES=$(./push_swap  --adaptive $ARG | ./checker_linux $ARG)
+printf $DEF_COLOR"adaptive"
+if [ "$RES" = "KO" ]; then 
+        printf $RED"KO\n"
+else
+        printf $GREEN"OK\n"
+fi
+done
+
+for i in {1..10}; do
+ARG=$(seq -200 200 | shuf -n 100 | tr '\n' ' ')
+printf "$DEF_COLOR$i )  \n"
+printf $CYAN
+./push_swap --simple --bench $ARG 2> bench.txt 1> /dev/null
+cat bench.txt | grep "disorder"
+printf $DEF_COLOR
+NUM=$(./push_swap --simple $ARG | wc -l)
+        echo "Simple: $NUM"
+
+NUM=$(./push_swap --medium $ARG | wc -l)
+        echo "Medium: $NUM"
+
+NUM=$(./push_swap --complex $ARG | wc -l)
+        echo "Complex: $NUM"
+
+
+NUM=$(./push_swap --adaptive $ARG | wc -l) 
+        echo "Adaptive: $NUM"
+
 done
 
 
+: << 'END'
 echo "-------------------"
 echo "sort 6 elements"
 for i in {1..10}; do
@@ -88,3 +283,4 @@ if [ "$NUM" -gt 5500 ]; then
        # echo "Array: $ARG"
 fi
 done
+END
