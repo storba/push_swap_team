@@ -14,10 +14,10 @@ WHITE='\033[0;97m'
 echo "$MAGENTA sort 5 elements"
 for i in {1..10}; do
 ARG=$(seq 0 100 | shuf -n 5 | tr '\n' ' ')
-echo $i ")" $ARG
+printf $i ")" $ARG "\n"
 
 RES=$(./push_swap  --simple $ARG | ./checker_linux $ARG)
-echo "$BLACK simple $RES"
+printf "$BLACK simple $RES \n"
 
 RES=$(./push_swap  --medium $ARG | ./checker_linux $ARG)
 echo "medium $RES"
