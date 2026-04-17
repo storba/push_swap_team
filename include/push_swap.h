@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: yelkorni <yelkorni@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/04/03 14:52:18 by yelkorni      #+#    #+#                 */
-/*   Updated: 2026/04/16 15:11:37 by svpanfil      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yelkorni <yelkorni@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/03 14:52:18 by yelkorni      #+  #+#    #+#             */
+/*   Updated: 2026/04/17 11:27:08 by yelkorni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ void	sort_simple_min_max(t_Stack *a, t_Stack *b, t_Info *info);
 //medium
 void	fill_index(t_Stack *stack);
 void	sort_medium_chunk(t_Stack *stack_a, t_Stack *stack_b, t_Info *info);
+void	push_back_chunk(t_Stack *stack_a, t_Stack *stack_b, t_Info *info);
 //complex
 void	sort_complex(t_Stack *stack_a, t_Stack *stack_b, t_Info *info);
 int		get_value_by_ind(int i, t_Stack *stack);

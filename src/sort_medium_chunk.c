@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   sort_medium_chunk.c                                :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: yelyzavetakorniienko <yelyzavetakorniie      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2026/04/12 18:56:47 by yelyzavetak   #+#    #+#                 */
-/*   Updated: 2026/04/16 13:22:08 by svpanfil      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   sort_medium_chunk.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yelkorni <yelkorni@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/12 18:56:47 by yelyzavetak   #+  #+#    #+#             */
+/*   Updated: 2026/04/17 11:27:32 by yelkorni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static int	get_sqrt(int n)
 {
+	int	i;
 	int	i;
 
 	i = 1;
@@ -26,6 +27,7 @@ static int	get_sqrt(int n)
 
 static void	push_chunk(t_Stack *s_a, t_Stack *s_b, t_Info *info, int chunk_size)
 {
+	int	pushed;
 	int	pushed;
 
 	pushed = 0;
@@ -100,8 +102,6 @@ void	sort_medium_chunk(t_Stack *stack_a, t_Stack *stack_b, t_Info *info)
 	push_chunk(stack_a, stack_b, info, chunk_size);
 	while (stack_b->size > 0)
 	{
-		max_position = get_max_position(stack_b);
-		move_max_to_top(stack_b, max_position, info);
-		do_pa(stack_a, stack_b, info);
+		push_back_chunk(stack_a, stack_b, info);
 	}
 }
