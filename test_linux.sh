@@ -1,45 +1,49 @@
 #!/bin/bash
-#valgrind --leak-check=full
-# Generate 100 random numbers between 0 and 5000 and store them in ARG
-#ARG=$(shuf -i -5000-5000 -n 500)
-echo "sort 5 elements"
-for i in {1..10}; do
-#ARG=$(gshuf -i 0-5000 -n 5)
-ARG=$(seq 0 1000 | shuf -n 5 | tr '\n' ' ')
-RES=$(./push_swap  --simple $ARG | ./checker_linux $ARG)
-if [ "$RES" = "KO" ]; then 
-        echo "KO"
-    fi
-RES=$(./push_swap  --medium $ARG | ./checker_linux $ARG)
-if [ "$RES" = "KO" ]; then 
-        echo "KO"
-    fi
-RES=$(./push_swap  --complex $ARG | ./checker_linux $ARG)
-if [ "$RES" = "KO" ]; then 
-        echo "KO"
-    fi
+#-----CLRS -------#
+DEF_COLOR='\033[0;39m'
+BLACK='\033[0;30m'
+RED='\033[1;91m'
+GREEN='\033[1;92m'
+YELLOW='\033[0;93m'
+BLUE='\033[0;94m'
+MAGENTA='\033[0;95m'
+CYAN='\033[0;96m'
+GRAY='\033[0;90m'
+WHITE='\033[0;97m'
 
+echo "$MAGENTA sort 5 elements"
+for i in {1..10}; do
+ARG=$(seq 0 100 | shuf -n 5 | tr '\n' ' ')
+echo $i ")" $ARG
+
+RES=$(./push_swap  --simple $ARG | ./checker_linux $ARG)
+echo "$BLACK simple $RES"
+
+RES=$(./push_swap  --medium $ARG | ./checker_linux $ARG)
+echo "medium $RES"
+
+RES=$(./push_swap  --complex $ARG | ./checker_linux $ARG)
+echo "complex $RES"
+
+RES=$(./push_swap  --adaptive $ARG | ./checker_linux $ARG)
+echo "adaptive $RES"
+
+echo -n "Array: $ARG"
 NUM=$(./push_swap --simple $ARG | wc -l)
-#if [ "$NUM" -gt 12 ]; then 
-        echo "Simple Instructions: $NUM"
-        #echo "Array: $ARG"
-#fi
+        echo "Simple: $NUM"
 
 NUM=$(./push_swap --complex $ARG | wc -l)
-#if [ "$NUM" -gt 12 ]; then 
-        echo "Complex Instructions: $NUM"
-        #echo "Array: $ARG"
-#fi
+        echo "Complex: $NUM"
 
 NUM=$(./push_swap --medium $ARG | wc -l)
-#if [ "$NUM" -gt 12 ]; then 
-        echo "Medium Instructions: $NUM"
+        echo "Medium: $NUM"
 
-NUM=$(./push_swap --adaptive $ARG | wc -l)
-#if [ "$NUM" -gt 12 ]; then 
-        echo "Adaptive Instructions: $NUM"
+NUM=$(./push_swap --adaptive $ARG | wc -l) 
+        echo "Adaptive: $NUM"
 done
 
+
+echo "-------------------"
 echo "sort 6 elements"
 for i in {1..10}; do
 RG=$(seq -5000 5000 | shuf -n 6 | tr '\n' ' ')
