@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sort_medium_chunk.c                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yelkorni <yelkorni@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/12 18:56:47 by yelyzavetak   #+  #+#    #+#             */
-/*   Updated: 2026/04/17 11:33:58 by yelkorni         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   sort_medium_chunk.c                                :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: yelkorni <yelkorni@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/12 18:56:47 by yelyzavetak   #+#    #+#                 */
+/*   Updated: 2026/04/21 11:16:06 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,8 @@ void	sort_medium_chunk(t_Stack *stack_a, t_Stack *stack_b, t_Info *info)
 	while (stack_b->size > 0)
 	{
 		max_position = get_max_position(stack_b);
-		move_max_to_top(stack_b, max_position, info);
+		if (stack_b->size > 1)
+			move_max_to_top(stack_b, max_position, info);
 		do_pa(stack_a, stack_b, info);
 	}
 }
