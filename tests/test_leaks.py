@@ -20,8 +20,7 @@ def _run_valgrind(args: list[str]):
 
 
 def _assert_clean_valgrind_output(result) -> None:
-    assert result.returncode == 0
-    assert "definitely lost: 0 bytes in 0 blocks" in result.stderr
+    assert "in use at exit: 0 bytes in 0 blocks" in result.stderr
     assert "ERROR SUMMARY: 0 errors from 0 contexts" in result.stderr
 
 
@@ -38,6 +37,9 @@ def require_valgrind(push_swap_bin):
         ["1", "2", "1", "2"],
         ["1", "2", "aaa", "5"],
         ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+        ["1", "25", "3", "9", "15", "6", "7", "8", "19", "10"],
+        ["1", "2", "2147483648"],
+        ["1", "2", "-2147483649"],
     ],
 )
 def test_valgrind_no_leaks(args: list[str]) -> None:

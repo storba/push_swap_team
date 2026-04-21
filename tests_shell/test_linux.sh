@@ -215,7 +215,7 @@ fi
 done
 
 for i in {1..10}; do
-ARG=$(seq -200 200 | shuf -n 100 | tr '\n' ' ')
+ARG=$(seq -2000 2000 | shuf -n 500 | tr '\n' ' ')
 printf "$DEF_COLOR$i )  \n"
 printf $CYAN
 ./push_swap --simple --bench $ARG 2> bench.txt 1> /dev/null
