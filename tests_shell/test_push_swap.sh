@@ -11,11 +11,12 @@ CYAN='\033[0;96m'
 GRAY='\033[0;90m'
 WHITE='\033[0;97m'
 printf "$MAGENTA Testing input check \n"
-./test_check_input.sh
+./tests_shell/test_check_input.sh
+./tests_shell/test_leaks.sh
 printf "$DEF_COLOR"
 if [ "$(uname -s)" = "Darwin" ]; then
   name="Mac"
 else
   name="linux"
 fi
-./test_${name}.sh
+./tests_shell/test_${name}.sh

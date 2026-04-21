@@ -70,4 +70,27 @@ if grep -qF "in use at exit: 0 bytes in 0 blocks" leaks.txt \
 else
   printf  "$RED KO$DEF_COLOR\n"
 fi
+
+ARG=$(seq -2000 2000 | shuf -n 100 | tr '\n' ' ')
+printf "$GRAY test 5: ./push_swap with 100 args$DEF_COLOR   "
+valgrind --leak-check=full --error-exitcode=42 $PUSHSWAP $ARG 2> leaks.txt >/dev/null
+vg=$?
+if grep -qF "in use at exit: 0 bytes in 0 blocks" leaks.txt \
+  && grep -qF "ERROR SUMMARY: 0 errors from 0 contexts" leaks.txt; then
+  printf "$GREEN OK$DEF_COLOR\n"
+else
+  printf  "$RED KO$DEF_COLOR\n"
+fi
+
+
+ARG=$(seq -2000 2000 | shuf -n 500 | tr '\n' ' ')
+printf "$GRAY test 5: ./push_swap with 500 args$DEF_COLOR   "
+valgrind --leak-check=full --error-exitcode=42 $PUSHSWAP $ARG 2> leaks.txt >/dev/null
+vg=$?
+if grep -qF "in use at exit: 0 bytes in 0 blocks" leaks.txt \
+  && grep -qF "ERROR SUMMARY: 0 errors from 0 contexts" leaks.txt; then
+  printf "$GREEN OK$DEF_COLOR\n"
+else
+  printf  "$RED KO$DEF_COLOR\n"
+fi
 #2> bench.txt 1> /dev/null
