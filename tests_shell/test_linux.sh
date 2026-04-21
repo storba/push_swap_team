@@ -239,7 +239,7 @@ done
 printf "$MAGENTA sort 500 elements \n"
 printf "=====================================\n"
 
-or i in {1..10}; do
+for i in {1..10}; do
 ARG=$(seq -5000 5000 | shuf -n 500 | tr '\n' ' ')
 printf "$DEF_COLOR $i ) \n"
 
