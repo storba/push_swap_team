@@ -6,7 +6,7 @@
 /*   By: yelkorni <yelkorni@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/04/03 14:52:12 by yelkorni      #+#    #+#                 */
-/*   Updated: 2026/04/16 21:19:02 by sveta         ########   odam.nl         */
+/*   Updated: 2026/04/21 12:36:48 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	main(int argc, char **argv)
 	info.disorder = compute_disorder(&stack_a);
 	if (is_sorted(&stack_a))
 	{
+		if (info.benchmark == 1)
+			write_bench_info(info);
 		free_stack(&stack_a);
 		return (0);
 	}
@@ -36,6 +38,5 @@ int	main(int argc, char **argv)
 	sort_stack(&stack_a, &stack_b, &info);
 	if (info.benchmark == 1)
 		write_bench_info(info);
-	free_two_stacks(&stack_a, &stack_b);
-	return (0);
+	return (free_two_stacks(&stack_a, &stack_b));
 }

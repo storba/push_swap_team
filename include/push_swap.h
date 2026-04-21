@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yelkorni <yelkorni@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/03 14:52:18 by yelkorni      #+  #+#    #+#             */
-/*   Updated: 2026/04/17 11:27:08 by yelkorni         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   push_swap.h                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: yelkorni <yelkorni@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/03 14:52:18 by yelkorni      #+#    #+#                 */
+/*   Updated: 2026/04/21 12:34:44 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ t_Info	parse_input(int argc, char **argv);
 t_Node	*create_node(int value);
 void	init_stack(t_Stack *stack);
 void	free_stack(t_Stack *stack);
-void	free_two_stacks(t_Stack *stack_a, t_Stack *stack_b);
 void	print_stack(t_Stack *stack);
 void	push_front_node(t_Stack *stack, t_Node *new_node);
 int		push_front(t_Stack *stack, int value);
@@ -102,7 +101,7 @@ void	do_pb_bon(t_Stack *stack_a, t_Stack *stack_b);
 void	do_ss_bon(t_Stack *stack_a, t_Stack *stack_b);
 void	do_rr_bon(t_Stack *stack_a, t_Stack *stack_b);
 void	do_rrr_bon(t_Stack *stack_a, t_Stack *stack_b);
-void	free_two_stacks(t_Stack *stack_a, t_Stack *stack_b);
+int		free_two_stacks(t_Stack *stack_a, t_Stack *stack_b);
 
 // sorting strategies
 void	sort_simple_min_max(t_Stack *a, t_Stack *b, t_Info *info);
