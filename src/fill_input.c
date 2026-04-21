@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   fill_input.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yelkorni <yelkorni@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/09 15:50:22 by svpanfil      #+  #+#    #+#             */
-/*   Updated: 2026/04/17 11:30:08 by yelkorni         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   fill_input.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: yelkorni <yelkorni@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2026/04/09 15:50:22 by svpanfil      #+#    #+#                 */
+/*   Updated: 2026/04/21 10:20:48 by svpanfil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,27 @@ void	init_info(t_Info *info)
 	info->rrb = 0;
 	info->rrr = 0;
 }
-static void change_strategy(int str,t_Info *info, int *count_strategy)
+
+static void	change_strategy(int str, t_Info *info, int *count_strategy)
 {
 	info->strategy = str;
 	(*count_strategy)++;
 }
-void	check_one_arg(char *arg, t_Info *info, int *count_strategy, int *count_benchmark)
+
+void	check_one_arg(char *arg, t_Info *info, int *count_str, int *count_bench)
 {
 	if (ft_strncmp(arg, "--simple", 9) == 0)
-		change_strategy(0, info, count_strategy);
+		change_strategy(0, info, count_str);
 	else if (ft_strncmp(arg, "--medium", 9) == 0)
-		change_strategy(1, info, count_strategy);
+		change_strategy(1, info, count_str);
 	else if (ft_strncmp(arg, "--complex", 10) == 0)
-		change_strategy(2, info, count_strategy);
+		change_strategy(2, info, count_str);
 	else if (ft_strncmp(arg, "--adaptive", 11) == 0)
-		change_strategy(3, info, count_strategy);
+		change_strategy(3, info, count_str);
 	else if (ft_strncmp(arg, "--bench", 8) == 0)
 	{
 		info->benchmark = 1;
-		(*count_benchmark)++;
+		(*count_bench)++;
 	}
 	else if (ft_strncmp(arg, "--", 2) == 0)
 		info->error = 1;
