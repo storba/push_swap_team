@@ -54,6 +54,9 @@ ${NAME}: ${OBJS}
 
 all: $(NAME)
 
+test: all
+	python3 ./run_tests.py
+
 clean:
 	rm -f src/*.o
 	rm -f *.o
@@ -73,4 +76,4 @@ bonus: ${OBJ_BONUS}
 	make -C ./ft_printf
 	@${CC} ${CFLAGS} ${OBJ_BONUS} ./libft/libft.a ./ft_printf/libftprintf.a -o checker
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus test
